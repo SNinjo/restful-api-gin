@@ -1,0 +1,128 @@
+definitions:
+  user.EditUserDto:
+    properties:
+      age:
+        example: 22
+        type: integer
+      name:
+        example: Jo Liao
+        type: string
+    type: object
+  user.UserDto:
+    properties:
+      age:
+        example: 22
+        type: integer
+      created_at:
+        example: 2025-01-01T00:00:000Z
+        type: string
+      id:
+        example: 63e57e2e1b2e4d0f9c564b33
+        type: string
+      name:
+        example: Jo Liao
+        type: string
+      updated_at:
+        example: 2025-01-01T00:00:000Z
+        type: string
+    type: object
+info:
+  contact: {}
+  title: restful-api-gin
+paths:
+  /users:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: ' '
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/user.EditUserDto'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: user
+          schema:
+            $ref: '#/definitions/user.UserDto'
+  /users/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: ' '
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user
+          schema:
+            $ref: '#/definitions/user.UserDto'
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: ' '
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user
+          schema:
+            $ref: '#/definitions/user.UserDto'
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: ' '
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: ' '
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/user.EditUserDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user
+          schema:
+            $ref: '#/definitions/user.UserDto'
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: ' '
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: ' '
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/user.EditUserDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user
+          schema:
+            $ref: '#/definitions/user.UserDto'
+swagger: "2.0"
